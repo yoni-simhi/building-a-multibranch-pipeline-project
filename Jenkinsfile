@@ -1,12 +1,13 @@
 pipeline {
     agent {
         docker {
-            image 'node:6-alpine'
-            args '-p 3000:3000 -p 5000:5000' 
+            image 'zazukoians/node-java'
+            args '-p 3000:3000 -p 5001:5001' 
         }
     }
     environment {
         CI = 'true'
+        HOME = "."
     }
     stages {
         stage('Build') {
